@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Monster</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <script>
+        function setup() {
+            createCanvas(400, 400);
+        }
+        
+        let rectY = 175;
+        let rectOffset = 20;
+        let angle = 0;
+
+        function draw() {
+            background(194, 100, 6);
+            drawGround();
+            updateRectanglePosition();
+            drawRectangle();
+            drawCircle();
+        }
+
+        function drawGround() {
+            fill(12, 148, 46);
+            rect(-1, 330, 700, 70);
+        }
+
+        function updateRectanglePosition() {
+            rectY = 175 + sin(angle) * rectOffset;
+            angle += 0.05;
+        }
+
+        function drawRectangle() {
+            // Monster demon
+            fill(163, 28, 212);
+            rect(180, rectY, 50, 80);
+
+            // Eyes
+            fill(235, 219, 52);
+            ellipse(190, rectY - 5, 6, 5);
+            ellipse(220, rectY - 5, 6, 5);
+
+            // Mouth
+            fill(163, 28, 100);
+            rect(190, rectY + 25, 30, 10);
+            
+            // Mouth details
+            fill(255, 255, 255);
+            rect(200, rectY + 25, 5, 5);
+            rect(205, rectY + 25, 5, 5);
+        }
+
+        function drawCircle() {
+            // Moon
+            fill(143, 156, 146);
+            ellipse(290, 90, 60, 60);
+            fill(255); 
+            ellipse(290, 85, 5, 5);
+            ellipse(280, 70, 7, 8);
+            ellipse(270, 100, 5, 5);
+            ellipse(300, 110, 6, 5);
+        }
+    </script>
+</body>
+</html>
